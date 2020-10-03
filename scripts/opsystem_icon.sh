@@ -4,7 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 source $CURRENT_DIR/helper.sh
 
-opsystem_icon_string="@opsystem_icon"
+opsystem_icon_string="@custom_opsystem_icon"
 default_osx=""
 default_freebsd=""
 default_linux=""
@@ -29,20 +29,20 @@ is_cygwin(){
 
 icon_default(){
   if is_osx;then
-    echo "$default_osx"
+    echo -n "$default_osx"
   elif is_linux;then
-    echo "$default_linux"
+    echo -n "$default_linux"
   elif is_freebsd;then
-    echo "$default_freebsd"
+    echo -n "$default_freebsd"
   elif is_cygwin;then
-    echo "$default_cygwin"
+    echo -n "$default_cygwin"
   else
-    echo "$default_other"
+    echo -n "$default_other"
   fi
 }
 
 print_icon(){
-  printf "$(get_tmux_option "$opsystem_icon_string" "$(icon_default)")"
+  echo "$(get_tmux_option "$opsystem_icon_string" "$(icon_default)")"
 }
 
 main(){

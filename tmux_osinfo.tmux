@@ -3,12 +3,12 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/scripts/helper.sh"
 
-placeholders=(
-  "\#{opsystem_icon}" ,
+sys_placeholders=(
+  "\#{opsystem_icon}",
   "\#{opsystem_version}"
 )
 
-commands=(
+sys_commands=(
 "#($CURRENT_DIR/scripts/opsystem_icon.sh)",
 "#($CURRENT_DIR/scripts/opsystem_version.sh)"
 )
@@ -16,8 +16,8 @@ commands=(
 
 do_interpolation(){
   local string="$1"
-  for ((i=0;i<${#commands[@]};i++));do
-    string="${string//${placeholders[$i]}/${commands[$i]}}"
+  for ((i=0; i<${#commands[@]}; i++));do
+    string="${string//${sys_placeholders[$i]}/${sys_commands[$i]}}"
   done
   echo "$string"
 }
