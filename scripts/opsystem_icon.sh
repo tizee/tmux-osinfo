@@ -29,20 +29,20 @@ is_cygwin(){
 
 icon_default(){
   if is_osx;then
-    echo -n "$default_osx"
+    echo "$default_osx"
   elif is_linux;then
-    echo -n "$default_linux"
+    echo "$default_linux"
   elif is_freebsd;then
-    echo -n "$default_freebsd"
+    echo "$default_freebsd"
   elif is_cygwin;then
-    echo -n "$default_cygwin"
+    echo "$default_cygwin"
   else
-    echo -n "$default_other"
+    echo "$default_other"
   fi
 }
 
 print_icon(){
-  echo "$(get_tmux_option "$opsystem_icon_string" "$(icon_default)")"
+  printf "$(get_tmux_option "$opsystem_icon_string" "$(icon_default)")"
 }
 
 main(){

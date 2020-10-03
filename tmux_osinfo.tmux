@@ -3,23 +3,17 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/scripts/helper.sh"
 
-sys_placeholders=(
-  "\#{opsystem_icon}",
-  "\#{opsystem_version}"
-)
-
-sys_commands=(
-"#($CURRENT_DIR/scripts/opsystem_icon.sh)",
-"#($CURRENT_DIR/scripts/opsystem_version.sh)"
-)
-
+icon_placeholder="\#{opsystem_icon}"
+icon_value="#($CURRENT_DIR/scripts/opsystem_icon.sh)"
+version_placeholder="\#{opsystem_version}"
+version_value="#($CURRENT_DIR/scripts/opsystem_version.sh)"
 
 do_interpolation(){
   local string="$1"
-  for ((i=0; i<${#commands[@]}; i++));do
-    string="${string//${sys_placeholders[$i]}/${sys_commands[$i]}}"
-  done
-  echo "$string"
+  local result=""
+  result="${string/$icon_placeholder/$icon_value}"
+  result="${result/$version_placeholder/$version_value}"
+  echo "$result"
 }
 
 update_tmux_option(){
