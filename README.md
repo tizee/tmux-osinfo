@@ -4,7 +4,7 @@
 
 ![screenshot](screenshots/screenshot.png)<br/>
 
-<div>
+</div>
 
 Display System info using `uname`
 
