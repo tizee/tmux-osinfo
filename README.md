@@ -1,4 +1,10 @@
-# Tmux-osinfo
+<div align="center">
+
+<h1>tmux-osinfo</h1>
+
+![screenshot](screenshots/screenshot.png)<br/>
+
+<div>
 
 Display System info using `uname`
 
