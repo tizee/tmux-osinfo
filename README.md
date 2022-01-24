@@ -2,7 +2,7 @@
 
 <h1>tmux-osinfo</h1>
 
-![screenshot](screenshots/screenshot.png)<br/>
+![screenshot](https://user-images.githubusercontent.com/33030965/150766473-ec10d01c-2055-4e6c-8547-bdc905e7e573.png)<br/>
 
 </div>
 
